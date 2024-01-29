@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Lish.css";
 import Img from "./img/360_F_586210337_WOGOw0l7raEB8F61Muc4hWbvVcyQdk9Z.jpg";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 const List = () => {
   const [list, setList] = useState([]);
 
@@ -74,17 +76,19 @@ const List = () => {
           <div className="task-input">
             <input
               type="text"
-              placeholder="Nhập Thêm công việc"
+              placeholder="Nhập thêm công việc"
               value={task}
               onChange={(e) => setTask(e.target.value)}
               className="input-list"
             />
-            <button type="submit">Thêm</button>
+            <button className="btn btn-outline-primary" type="submit">
+              Thêm
+            </button>
           </div>
 
           <div className="item-input">
-            {list.length === 0 ? ( // Kiểm tra nếu danh sách rỗng
-              <img src={Img} alt="Empty list" /> // Hiển thị hình ảnh khi rỗng
+            {list.length === 0 ? (
+              <img src={Img} alt="Empty list" />
             ) : (
               <>
                 {list.map((item, index) => (
@@ -97,10 +101,16 @@ const List = () => {
                           onChange={(e) => setEditValue(e.target.value)}
                           className="edit-input"
                         />
-                        <button onClick={handleSave} className="edit-buttons">
+                        <button
+                          onClick={handleSave}
+                          className="btn btn-outline-danger"
+                        >
                           Lưu
                         </button>
-                        <button onClick={handleCancel} className="edit-buttons">
+                        <button
+                          onClick={handleCancel}
+                          className="btn btn-outline-secondary"
+                        >
                           Hủy
                         </button>
                       </div>
@@ -126,13 +136,26 @@ const List = () => {
                         >
                           {item.name}
                         </p>
-                        <button
-                          className="btn-detele"
-                          onClick={() => handleDelete(index)}
-                        >
-                          Xóa
-                        </button>
-                        <button onClick={() => handleFix(index)}>Sửa</button>
+                        <div className="button-container">
+                          <button
+                            className="btn-delete"
+                            onClick={() => handleDelete(index)}
+                          >
+                            <FontAwesomeIcon
+                              icon={faTrashAlt}
+                              className="btn-icon"
+                            />
+                          </button>
+                          <button
+                            className="btn-fix"
+                            onClick={() => handleFix(index)}
+                          >
+                            <FontAwesomeIcon
+                              icon={faPenToSquare}
+                              className="btn-icon"
+                            />
+                          </button>
+                        </div>
                       </>
                     )}
                   </div>
