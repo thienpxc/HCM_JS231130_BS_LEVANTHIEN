@@ -1,0 +1,61 @@
+.list-container {
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  h3 {
+    text-align: center;
+  }
+  .input-list {
+    width: 80%;
+  }
+  .btn-detele {
+    margin-left: 240px;
+  }
+
+  .task-input {
+    margin-bottom: 10px;
+  }
+
+  .task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .checkbox {
+      margin-right: 10px;
+    }
+
+    .edit-mode {
+      margin-top: 0px;
+      display: flex;
+      align-items: center;
+
+      .edit-input {
+        margin-right: 5px;
+        width: auto;
+      }
+
+      .edit-buttons {
+        margin-left: 5px;
+      }
+    }
+   
+    .checkbox:checked + .task-text {
+    text-decoration: line-through;
+}
+  }
+  .p{
+    background-color: #e98c8c;
+  }
+  
+
+}
